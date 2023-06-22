@@ -112,28 +112,16 @@ console.log(Symbol.keyFor(globalSymbol1));
  */
 
 
-function* testGenerator(){
-
-  yield;
-  yield;
-
-}
-
-
-const tst=testGenerator();
-
-console.log(tst.next(1));
-console.log(tst.next(2));
-
-
-
 
 
 function* logGenerator() {
 
-yield '1';
-yield;
-yield;
+yield 'initial value';
+const x=yield 'value will passed';
+yield x;
+const y=yield '?';
+yield y;
+
 }
 
 const logGen = logGenerator();
@@ -143,7 +131,12 @@ const logGen = logGenerator();
 // logGen.next(3);
 
 console.log(logGen.next());
-console.log(logGen.next(2));
+console.log(logGen.next());
+console.log(logGen.next(3));
+console.log(logGen.next());
+console.log(logGen.next(4));
+
+
 
 
 
